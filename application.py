@@ -6,6 +6,7 @@ import numpy as np
 import sklearn
 from sklearn.preprocessing import StandardScaler
 application = Flask(__name__)
+app = application
 model = pickle.load(open('random_forest_regression_model.pkl', 'rb'))
 @app.route('/',methods=['GET'])
 def Home():
@@ -50,5 +51,5 @@ def predict():
         return render_template('index.html')
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run()
 
